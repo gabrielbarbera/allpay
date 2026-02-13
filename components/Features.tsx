@@ -1,58 +1,23 @@
 
 import React from 'react';
-import { 
-  Landmark, 
-  Zap, 
-  ShieldCheck, 
-  BarChart3, 
-  RefreshCw, 
-  Globe 
+import {
+  Landmark,
+  Zap,
+  ShieldCheck,
+  BarChart3,
+  RefreshCw,
+  Globe
 } from 'lucide-react';
+import { FEATURES } from '../constants';
 
-const FEATURE_DATA = [
-  {
-    id: 'bank-verification',
-    title: 'Instant Bank Verification',
-    description: 'Connect and verify bank accounts in seconds using our secure authentication flow. Support for all major financial institutions.',
-    icon: Landmark,
-    gridClass: 'lg:col-span-2 lg:row-span-1'
-  },
-  {
-    id: 'real-time',
-    title: 'Real-Time Processing',
-    description: 'Process payments instantly with real-time settlement and notifications. No more waiting days for funds to clear.',
-    icon: Zap,
-    gridClass: 'lg:col-span-1 lg:row-span-2'
-  },
-  {
-    id: 'security',
-    title: 'Enterprise Security',
-    description: 'Bank-grade encryption, PCI DSS compliant, and SOC 2 certified. Your data and your customers\' data is always protected.',
-    icon: ShieldCheck,
-    gridClass: 'lg:col-span-1 lg:row-span-1'
-  },
-  {
-    id: 'analytics',
-    title: 'Advanced Analytics',
-    description: 'Deep insights into payment flows, revenue trends, and customer behavior. Make data-driven decisions with confidence.',
-    icon: BarChart3,
-    gridClass: 'lg:col-span-1 lg:row-span-1'
-  },
-  {
-    id: 'reconciliation',
-    title: 'Automated Reconciliation',
-    description: 'Match payments to invoices automatically. Save hours of manual work and eliminate reconciliation errors.',
-    icon: RefreshCw,
-    gridClass: 'lg:col-span-1 lg:row-span-1'
-  },
-  {
-    id: 'multi-currency',
-    title: 'Multi-Currency Support',
-    description: 'Accept payments in 135+ currencies with automatic conversion and competitive FX rates. Go global effortlessly.',
-    icon: Globe,
-    gridClass: 'lg:col-span-2 lg:row-span-1'
-  }
-];
+const ICONS = {
+  'bank-verification': Landmark,
+  'real-time': Zap,
+  'security': ShieldCheck,
+  'analytics': BarChart3,
+  'reconciliation': RefreshCw,
+  'multi-currency': Globe
+} as const;
 
 const Features: React.FC = () => {
   return (
@@ -66,12 +31,20 @@ const Features: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURE_DATA.map((feature) => {
-            const Icon = feature.icon;
+          {FEATURES.map((feature) => {
+            const Icon = ICONS[feature.id as keyof typeof ICONS];
+            const gridClass = {
+              'bank-verification': 'lg:col-span-2 lg:row-span-1',
+              'real-time': 'lg:col-span-1 lg:row-span-2',
+              'security': 'lg:col-span-1 lg:row-span-1',
+              'analytics': 'lg:col-span-1 lg:row-span-1',
+              'reconciliation': 'lg:col-span-1 lg:row-span-1',
+              'multi-currency': 'lg:col-span-2 lg:row-span-1'
+            }[feature.id] || 'lg:col-span-1 lg:row-span-1';
             return (
-              <div 
+              <div
                 key={feature.id}
-                className={`group relative bg-white border border-slate-200 rounded-3xl p-8 lg:p-10 transition-all duration-500 hover:border-brand-600/30 shadow-2xl flex flex-col justify-between overflow-hidden ${feature.gridClass}`}
+                className={`group relative bg-white border border-slate-200 rounded-3xl p-8 lg:p-10 transition-all duration-500 hover:border-brand-600/30 shadow-2xl flex flex-col justify-between overflow-hidden ${gridClass}`}
               >
                 {/* Subtle Background Glow on Hover */}
                 <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-48 h-48 bg-brand-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />

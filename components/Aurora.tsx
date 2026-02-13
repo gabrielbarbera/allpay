@@ -3,6 +3,13 @@ import { useEffect, useRef } from 'react';
 
 import './aurora.css';
 
+interface AuroraProps {
+  colorStops?: string[];
+  blend?: number;
+  amplitude?: number;
+  speed?: number;
+}
+
 const VERT = `#version 300 es
 in vec2 position;
 void main() {
@@ -109,7 +116,7 @@ void main() {
 }
 `;
 
-export default function Aurora(props) {
+export default function Aurora(props: AuroraProps) {
   const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5, speed = 1 } = props;
   const propsRef = useRef(props);
   propsRef.current = props;

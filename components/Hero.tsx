@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col gap-8">
           <h1 className="text-5xl lg:text-[4.75rem] font-bold tracking-tight text-slate-900 leading-[1.1]">
             Modern Payment <br />
-            <span className="text-brand-600">Infrastructure</span> <br />
+            <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 bg-clip-text text-transparent">Infrastructure</span> <br />
             for Growing Businesses
           </h1>
 
@@ -27,13 +27,21 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button className="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group">
+            <button 
+              onClick={() => window.location.href = 'https://calendly.com/allpay/demo'}
+              className="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none"
+              aria-label="Schedule a product demo with AllPay"
+            >
               Schedule a Demo
-              <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
             </button>
-            <button className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 rounded-full font-bold transition-all border border-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] active:scale-95 flex items-center gap-2">
+            <button 
+              onClick={() => window.location.href = 'https://docs.allpay.com'}
+              className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 rounded-full font-bold transition-all border border-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] active:scale-95 flex items-center gap-2 focus:ring-4 focus:ring-slate-300 focus:outline-none"
+              aria-label="View AllPay documentation"
+            >
               View Documentation
-              <FileText size={18} className="text-slate-400" />
+              <FileText size={18} className="text-slate-400" aria-hidden="true" />
             </button>
           </div>
 

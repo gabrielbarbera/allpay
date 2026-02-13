@@ -1,28 +1,11 @@
 
 import React, { useState } from 'react';
 import { AlertTriangle, Terminal } from 'lucide-react';
-
-const CODE_SNIPPETS = [
-  {
-    label: 'Node.js',
-    code: `// Initialize AllPay with your API key
-const allpay = require('@allpay/node');
-const client = allpay.init('your_api_key');
-
-// Create a payment
-const payment = await client.payments.create({
-  amount: '10000',
-  currency: 'USD',
-  customer: 'cust_12345',
-  description: 'Invoice #INV-001'
-});
-
-// That's it! Payment is processed and settled instantly`
-  }
-];
+import { CODE_SNIPPETS } from '../constants';
 
 const Developers: React.FC = () => {
-  const activeSnippet = CODE_SNIPPETS[0];
+  const [activeLang, setActiveLang] = useState('Node.js');
+  const activeSnippet = CODE_SNIPPETS.find(s => s.label === activeLang) || CODE_SNIPPETS[0];
 
   return (
     <section id="developers" className="py-32 bg-white">
@@ -63,11 +46,27 @@ const Developers: React.FC = () => {
             <div className="absolute -inset-4 bg-brand-600/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             
             <div className="relative bg-[#f6f8fa] rounded-3xl border border-slate-200 shadow-2xl overflow-hidden font-mono text-sm leading-relaxed">
-              <div className="flex items-center justify-between px-6 py-4 bg-slate-50 border-b border-slate-200">
-                <div className="flex items-center gap-3">
-                  <Terminal size={14} className="text-slate-400" />
-                  <span className="text-xs font-bold text-slate-700">{CODE_SNIPPETS[0].label}</span>
-                </div>
+          <div className="flex items-center justify-between px-6 py-4 bg-slate-50 border-b border-slate-200">
+            <div className="flex items-center gap-3">
+              <Terminal size={14} className="text-slate-400" />
+              <div className="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200 shadow-inner">
+                {CODE_SNIPPETS.map(snippet => (
+                  <button
+                    key={snippet.label}
+                    onClick={() => setActiveLang(snippet.label)}
+                    className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 ${
+                      activeLang === snippet.label
+                        ? 'bg-white text-brand-600 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_3px_rgba(0,0,0,0.1)] border border-slate-200'
+                        : 'text-slate-500 hover:text-slate-900'
+                    }`}
+                    aria-label={`Switch to ${snippet.label} code snippet`}
+                    aria-pressed={activeLang === snippet.label}
+                  >
+                    {snippet.label}
+                  </button>
+                ))}
+              </div>
+            </div>
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
                   <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />

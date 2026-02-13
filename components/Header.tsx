@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   onLogoClick: () => void;
@@ -7,6 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -26,8 +27,8 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-10">
-          <button onClick={onLogoClick} className="flex items-center gap-2 group focus:outline-none">
-            <img src="/Logo-dark.svg" alt="AllPay" className="h-8 w-auto transform group-hover:rotate-12 transition-transform" />
+          <button onClick={onLogoClick} className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg" aria-label="AllPay Home">
+            <img src="/Logo-dark.svg" alt="AllPay Logo" className="h-8 w-auto transform group-hover:rotate-12 transition-transform" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -35,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+                className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
               >
                 {link.name}
               </a>
@@ -44,15 +45,69 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
         </div>
 
         <div className="flex items-center gap-6">
-          <button className="hidden sm:block text-sm font-bold text-slate-600 hover:text-brand-600 transition-colors">
+          <button
+            onClick={() => window.location.href = 'https://dashboard.allpay.com/login'}
+            className="hidden sm:block text-sm font-bold text-slate-600 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
+            aria-label="Sign in to your account"
+          >
             Sign in
           </button>
-          <button className="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group">
+          <button
+            onClick={() => window.location.href = 'https://calendly.com/allpay/demo'}
+            className="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none"
+            aria-label="Get started with AllPay"
+          >
             Start now
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+          </button>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-slate-600 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile menu dropdown */}
+      {mobileMenuOpen && (
+        <nav className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg py-4" aria-label="Mobile navigation">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block py-4 px-6 text-base font-semibold text-slate-600 hover:bg-brand-50 hover:text-brand-600 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="mt-4 px-6 pt-4 border-t border-slate-100 flex flex-col gap-3">
+            <button
+              onClick={() => {
+                window.location.href = 'https://dashboard.allpay.com/login';
+                setMobileMenuOpen(false);
+              }}
+              className="text-base font-semibold text-slate-600 hover:text-brand-600 text-left focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
+            >
+              Sign in
+            </button>
+            <button
+              onClick={() => {
+                window.location.href = 'https://calendly.com/allpay/demo';
+                setMobileMenuOpen(false);
+              }}
+              className="w-full px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-colors focus:ring-4 focus:ring-brand-300 focus:outline-none"
+            >
+              Start now
+            </button>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
 
 const Terms: React.FC = () => {
+  const formatDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
   return (
     <div className="bg-white min-h-screen pt-40 pb-32">
       <div className="max-w-3xl mx-auto px-6">
         <header className="mb-16">
           <h1 className="text-5xl font-bold text-slate-900 tracking-tight mb-4">Terms of Service</h1>
-          <p className="text-slate-500 font-mono text-sm uppercase tracking-widest font-bold">Last Updated: May 20, 2024</p>
+          <p className="text-slate-500 font-mono text-sm uppercase tracking-widest font-bold">Last Updated: {formatDate}</p>
         </header>
 
         <div className="prose prose-slate prose-lg max-w-none text-slate-600 font-medium leading-relaxed">
@@ -52,7 +54,7 @@ const Terms: React.FC = () => {
 
           <section className="mb-12 border-t border-slate-100 pt-12">
             <p className="text-sm italic">
-              If you have any questions about these Terms, please contact our legal team at legal@allpay.com.
+              If you have any questions about these Terms, please contact our legal team at <a href="mailto:legal@allpay.com" className="text-brand-600 hover:underline">legal@allpay.com</a>.
             </p>
           </section>
         </div>

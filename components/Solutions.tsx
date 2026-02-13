@@ -1,53 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Check } from 'lucide-react';
-
-const SOLUTIONS = [
-  {
-    title: 'SaaS & Subscription Businesses',
-    description: 'Streamline recurring billing and reduce churn with intelligent retry logic and automated dunning.',
-    bullets: [
-      'Flexible billing cycles',
-      'Usage-based pricing support',
-      'Automated invoice generation',
-      'Customer payment portals'
-    ],
-    color: 'brand'
-  },
-  {
-    title: 'Marketplaces & Platforms',
-    description: 'Enable seamless multi-party payments with automated splits and vendor payouts.',
-    bullets: [
-      'Split payment flows',
-      'Vendor management tools',
-      'Escrow capabilities',
-      'Automated commission handling'
-    ],
-    color: 'blue'
-  },
-  {
-    title: 'E-Commerce',
-    description: 'Optimize checkout conversion with one-click payments and multiple payment methods.',
-    bullets: [
-      'Saved payment methods',
-      'Guest checkout support',
-      'Mobile-optimized flows',
-      'Fraud detection tools'
-    ],
-    color: 'cyan'
-  },
-  {
-    title: 'Enterprise Organizations',
-    description: 'Handle complex payment workflows with custom integrations and dedicated support.',
-    bullets: [
-      'Custom API integrations',
-      'White-label solutions',
-      'Dedicated account manager',
-      'SLA guarantees'
-    ],
-    color: 'indigo'
-  }
-];
+import { SOLUTIONS } from '../constants';
 
 const Solutions: React.FC = () => {
   return (
