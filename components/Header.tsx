@@ -26,10 +26,10 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-3' : 'bg-transparent py-6'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-10">
-          <button onClick={onLogoClick} className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg" aria-label="AllPay Home">
-            <img src="/Logo-dark.svg" alt="AllPay Logo" className="h-8 w-auto transform group-hover:rotate-12 transition-transform" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="flex items-center gap-6 sm:gap-10">
+          <button onClick={onLogoClick} className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start" aria-label="AllPay Home">
+            <img src="/Logo-dark.svg" alt="AllPay Logo" className="h-7 sm:h-8 w-auto transform group-hover:rotate-12 transition-transform" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             onClick={() => window.location.href = 'https://calendly.com/allpay/demo'}
-            className="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none"
+            className="hidden lg:flex px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(21,112,239,0.3)] active:scale-95 items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none"
             aria-label="Get started with AllPay"
           >
             Start now
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-600 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg"
+            className="lg:hidden p-3 -m-2 text-slate-600 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg py-4" aria-label="Mobile navigation">
+        <nav className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg py-2 sm:py-4 max-h-[calc(100vh-4rem)] overflow-y-auto" aria-label="Mobile navigation">
           {navLinks.map((link) => (
             <a
               key={link.name}

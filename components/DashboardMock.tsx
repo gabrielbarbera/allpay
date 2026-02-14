@@ -38,7 +38,7 @@ const DashboardMock: React.FC = () => {
 
       const timer = setInterval(() => {
         current += increment;
-        if (current as keyof typeof countedValues) <= target) {
+        if (current <= target) {
           setCountedValues(prev => ({ ...prev, [key]: Math.min(current, target) }));
         }
         if (current >= target) {
@@ -53,7 +53,8 @@ const DashboardMock: React.FC = () => {
   }, []);
 
   const { scrollY } = useScroll();
-  const { rotateX, rotateY } = useTransform();
+  const rotateX = useTransform(scrollY, [0, 500], [0, 15]);
+  const rotateY = useTransform(scrollY, [0, 500], [0, 10]);
   return (
     <motion.div
       style={{
@@ -137,7 +138,7 @@ const DashboardMock: React.FC = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
