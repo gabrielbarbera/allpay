@@ -21,11 +21,11 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold tracking-tight text-slate-900 leading-[1.2]"
+            className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold tracking-tight text-slate-900 flex flex-col gap-3 sm:gap-4"
           >
-            Modern <br />
-            <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 bg-clip-text text-transparent">Payment Infrastructure</span> <br />
-            for Growing Businesses
+            <span className="block">Modern</span>
+            <span className="block text-brand-600">Payment Infrastructure</span>
+            <span className="block">for Growing Businesses</span>
           </motion.h1>
 
           <motion.p
