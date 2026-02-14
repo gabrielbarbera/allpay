@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const data = [
   { time: '08:00', value: 400 },
@@ -13,11 +14,55 @@ const data = [
   { time: '15:00', value: 1550 },
   { time: '16:00', value: 1750 },
   { time: '17:00', value: 1800 },
-];
+  ];
 
 const DashboardMock: React.FC = () => {
+  const [countedValues, setCountedValues] = useState({ processed: 0, transactions: 0, success: 0, processing: 0 });
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (hasAnimated.current) return;
+
+    const targets = {
+      processed: 2.4,
+      transactions: 1247,
+      success: 98.7,
+      processing: 1.2
+    };
+
+    Object.entries(targets).forEach(([key, target]) => {
+      const duration = 2000;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current as keyof typeof countedValues) <= target) {
+          setCountedValues(prev => ({ ...prev, [key]: Math.min(current, target) }));
+        }
+        if (current >= target) {
+          clearInterval(timer);
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    });
+
+    hasAnimated.current = true;
+  }, []);
+
+  const { scrollY } = useScroll();
+  const { rotateX, rotateY } = useTransform();
   return (
-    <div className="relative w-full bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-3xl group">
+    <motion.div
+      style={{
+        rotateX: rotateX,
+        rotateY: rotateY,
+        transformStyle: 'preserve-3d'
+      }}
+      className="relative w-full bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-3xl group"
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-slate-50/50">
         <div className="flex gap-1.5">
@@ -56,28 +101,40 @@ const DashboardMock: React.FC = () => {
         {/* Content Layer */}
         <div className="relative z-10 grid grid-cols-2 gap-y-12 gap-x-8">
           {/* Processed Today */}
-          <div className="space-y-1 text-center">
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">$2.4M</p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="space-y-1 text-center"
+          >
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">${countedValues.processed.toFixed(1)}M</p>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Processed Today</p>
-          </div>
+          </motion.div>
 
           {/* Transactions */}
-          <div className="space-y-1 text-center">
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">1,247</p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="space-y-1 text-center"
+          >
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{Math.round(countedValues.transactions).toLocaleString()}</p>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Transactions</p>
-          </div>
+          </motion.div>
 
           {/* Success Rate */}
-          <div className="space-y-1 text-center">
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">98.7%</p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="space-y-1 text-center"
+          >
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{countedValues.success.toFixed(1)}%</p>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Success Rate</p>
-          </div>
+          </motion.div>
 
           {/* Avg Processing */}
-          <div className="space-y-1 text-center">
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">1.2s</p>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="space-y-1 text-center"
+          >
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{countedValues.processing.toFixed(1)}s</p>
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Avg Processing</p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
