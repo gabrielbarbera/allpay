@@ -89,7 +89,7 @@ const App: React.FC = () => {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                    {[
                      { title: 'Data Encryption', desc: 'AES-256 for all stored data at rest and in transit.' },
-                     { title: 'Access Control', desc: 'Granular RBAC and mandatory multi-factor authentication.' },
+                     { title: 'Security & Compliance', desc: 'Bank-grade encryption and embedded regulatory compliance.' },
                      { title: 'Fraud Prevention', desc: 'Real-time AI-driven risk scoring and anomaly detection.' },
                      { title: 'Audit Logs', desc: 'Immutable, tamper-proof logs for every system action.' }
                    ].map((box, index) => (

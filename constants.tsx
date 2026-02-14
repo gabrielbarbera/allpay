@@ -29,7 +29,7 @@ export const FEATURES: Feature[] = [
   {
     id: 'security',
     title: 'Enterprise Security',
-    description: 'Bank-grade encryption, PCI DSS compliant, and SOC 2 certified. Your data and your customers\' data is always protected.',
+    description: 'Bank-grade encryption, real-time fraud monitoring, and 24/7 customer support. Your data and your customers\' data is always protected.',
     bullets: [
       'Level 1 PCI DSS compliant',
       'End-to-end AES-256 encryption',
@@ -64,8 +64,8 @@ export const FEATURES: Feature[] = [
   },
   {
     id: 'multi-currency',
-    title: 'Multi-Currency Support',
-    description: 'Accept payments in 135+ currencies with automatic conversion and competitive FX rates. Go global effortlessly.',
+    title: 'Interac e-Transfer & EFT',
+    description: 'Move funds instantly across Canada\'s most trusted account-to-account networks. Go global effortlessly.',
     bullets: [
       'Mid-market FX rates',
       'Local payment methods (SEPA, Pix)',
