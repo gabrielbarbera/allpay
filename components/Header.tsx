@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
             className="hidden lg:flex px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(21,112,239,0.3)] active:scale-95 items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none"
             aria-label="Get started with AllPay"
           >
-            Start now
+            Launch Interac for Business
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
           </motion.button>
 
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
               }}
               className="w-full px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-colors focus:ring-4 focus:ring-brand-300 focus:outline-none"
             >
-              Start now
+              Launch Interac for Business
             </button>
           </div>
         </nav>

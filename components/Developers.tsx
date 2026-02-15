@@ -14,7 +14,7 @@ const Developers: React.FC = () => {
             <h2 className="text-sm font-bold text-brand-600 uppercase tracking-[0.4em] mb-4">Developer-First API</h2>
             <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
               A modern stack built for <br />
-              <span className="text-brand-600">Infrastructure Architects.</span>
+              <span className="text-brand-600">Interac gateway integration.</span>
             </h3>
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-medium">
               Modern RESTful API with comprehensive documentation and SDKs for every major language. Get up and running in minutes.

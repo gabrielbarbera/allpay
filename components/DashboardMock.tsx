@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -16,41 +16,14 @@ const data = [
   { time: '17:00', value: 1800 },
   ];
 
+const ANALYTICS = {
+  interacProcessed: 1,
+  success: 99.3,
+  avgProcessing: 1.2,
+  processedMonthly: 50
+};
+
 const DashboardMock: React.FC = () => {
-  const [countedValues, setCountedValues] = useState({ processed: 0, transactions: 0, success: 0, processing: 0 });
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (hasAnimated.current) return;
-
-    const targets = {
-      processed: 2.4,
-      transactions: 1247,
-      success: 98.7,
-      processing: 1.2
-    };
-
-    Object.entries(targets).forEach(([key, target]) => {
-      const duration = 2000;
-      const steps = 60;
-      const increment = target / steps;
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current <= target) {
-          setCountedValues(prev => ({ ...prev, [key]: Math.min(current, target) }));
-        }
-        if (current >= target) {
-          clearInterval(timer);
-        }
-      }, duration / steps);
-
-      return () => clearInterval(timer);
-    });
-
-    hasAnimated.current = true;
-  }, []);
 
   const { scrollY } = useScroll();
   const rotateX = useTransform(scrollY, [0, 500], [0, 15]);
@@ -101,22 +74,13 @@ const DashboardMock: React.FC = () => {
 
         {/* Content Layer */}
         <div className="relative z-10 grid grid-cols-2 gap-y-12 gap-x-8">
-          {/* Processed Today */}
+          {/* Interac transferred processed monthly */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="space-y-1 text-center"
           >
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">${countedValues.processed.toFixed(1)}M</p>
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Processed Today</p>
-          </motion.div>
-
-          {/* Transactions */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="space-y-1 text-center"
-          >
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{Math.round(countedValues.transactions).toLocaleString()}</p>
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Transactions</p>
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">${ANALYTICS.interacProcessed.toFixed(0)}M+</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Interac transferred processed monthly</p>
           </motion.div>
 
           {/* Success Rate */}
@@ -124,8 +88,8 @@ const DashboardMock: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="space-y-1 text-center"
           >
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{countedValues.success.toFixed(1)}%</p>
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Success Rate</p>
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{ANALYTICS.success.toFixed(1)}%</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Success rate</p>
           </motion.div>
 
           {/* Avg Processing */}
@@ -133,8 +97,17 @@ const DashboardMock: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="space-y-1 text-center"
           >
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{countedValues.processing.toFixed(1)}s</p>
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Avg Processing</p>
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{ANALYTICS.avgProcessing.toFixed(1)}s</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Avg processing</p>
+          </motion.div>
+
+          {/* Processed monthly */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="space-y-1 text-center"
+          >
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">{ANALYTICS.processedMonthly.toFixed(0)}M+</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Processed monthly</p>
           </motion.div>
         </div>
       </div>

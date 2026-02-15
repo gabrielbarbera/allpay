@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import DashboardMock from './DashboardMock';
 
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold tracking-tight text-slate-900 flex flex-col gap-3 sm:gap-4"
           >
             <span className="block">Modern</span>
-            <span className="block text-brand-600">Payment Infrastructure</span>
+            <span className="block text-brand-600">Interac Technology</span>
             <span className="block">for Growing Businesses</span>
           </motion.h1>
 
@@ -34,33 +34,25 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed font-medium"
           >
-            Streamline inbound payments, automate reconciliation, and get paid faster with AllPay's enterprise-grade payment platform.
+            Streamline inbound payments, automate reconciliation, and get paid faster with the most reliable Interac gateway for enterprise-grade payments.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-3 sm:gap-4"
+            className="flex flex-wrap items-center"
           >
-            <button
-              onClick={() => window.location.href = 'https://calendly.com/allpay/demo'}
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none min-h-[44px] min-w-[44px]"
-              aria-label="Schedule a product demo with AllPay"
-            >
-              Schedule a Demo
-              <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
-            </button>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={() => window.location.href = 'https://docs.allpay.com'}
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-white hover:bg-slate-50 text-slate-900 rounded-full font-bold transition-all border border-slate-200 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.05)] active:scale-95 flex items-center gap-2 focus:ring-4 focus:ring-slate-300 focus:outline-none min-h-[44px]"
-              aria-label="View AllPay documentation"
+              className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center justify-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none min-h-[44px] text-left sm:text-center text-base sm:text-lg max-w-2xl"
+              aria-label="Learn more about AllPay's PSP and Interac payment technology solutions"
             >
-              View Documentation
-              <FileText size={18} className="text-slate-400" aria-hidden="true" />
+              Click here to learn more about AllPay's PSP & Interac payment technology solutions.
+              <ArrowRight size={20} className="flex-shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
             </motion.button>
           </motion.div>
 
@@ -120,12 +112,20 @@ const Hero: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center space-y-1">
-                <p className="text-xl sm:text-2xl font-bold text-slate-900">$2.4M</p>
-                <p className="text-[10px] text-slate-400 uppercase font-bold">Processed</p>
+                <p className="text-xl sm:text-2xl font-bold text-slate-900">$1M+</p>
+                <p className="text-[10px] text-slate-400 uppercase font-bold">Interac transferred processed monthly</p>
               </div>
               <div className="text-center space-y-1">
-                <p className="text-xl sm:text-2xl font-bold text-slate-900">98.7%</p>
-                <p className="text-[10px] text-slate-400 uppercase font-bold">Success</p>
+                <p className="text-xl sm:text-2xl font-bold text-slate-900">99.3%</p>
+                <p className="text-[10px] text-slate-400 uppercase font-bold">Success rate</p>
+              </div>
+              <div className="text-center space-y-1">
+                <p className="text-xl sm:text-2xl font-bold text-slate-900">1.2s</p>
+                <p className="text-[10px] text-slate-400 uppercase font-bold">Avg processing</p>
+              </div>
+              <div className="text-center space-y-1">
+                <p className="text-xl sm:text-2xl font-bold text-slate-900">50M+</p>
+                <p className="text-[10px] text-slate-400 uppercase font-bold">Processed monthly</p>
               </div>
             </div>
           </div>

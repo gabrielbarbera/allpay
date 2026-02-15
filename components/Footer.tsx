@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ onTermsClick, onPrivacyClick, onSection
               <img src="/Logo-dark.svg" alt="AllPay Logo" className="h-8 w-auto transform group-hover:rotate-12 transition-transform" />
             </button>
             <p className="text-slate-600 leading-relaxed font-medium text-lg max-w-md">
-              The world's most advanced payment infrastructure. Designed for scale, built for developers, and trusted by global enterprises.
+              The world's most advanced Interac gateway for global scale. Designed for scale, built for developers, and trusted by global enterprises.
             </p>
             <div className="flex gap-4">
               {socialIcons.map(({ Icon, href, label }, i) => (

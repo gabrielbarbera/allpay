@@ -84,7 +84,7 @@ const App: React.FC = () => {
                     <h2 className="text-xs sm:text-sm font-bold text-brand-600 uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-3 sm:mb-4">Security first</h2>
                     <h3 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 tracking-tight">Enterprise-grade by default</h3>
                 <p className="text-slate-600 max-w-2xl mx-auto mb-12 sm:mb-16 lg:mb-20 text-lg sm:text-xl leading-relaxed font-medium">
-                  AllPay maintains the highest security standards. We're audited regularly to ensure your data and your customers' funds are protected.
+                  Our Interac technology maintains the highest bank-grade security standards. We're audited regularly to ensure your data and your customers' funds are protected.
                 </p>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                    {[
@@ -125,11 +125,11 @@ const App: React.FC = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   className="text-3xl sm:text-4xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-10 tracking-tighter leading-[1.1]"
                 >
-                  Ready to <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 bg-clip-text text-transparent">Transform</span> <br />
-                  Your <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 bg-clip-text text-transparent">Payments</span>?
+                  Ready to <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 bg-clip-text text-transparent">Launch Interac</span> <br />
+                  for Small Business?
                 </motion.h2>
                 <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 mb-10 sm:mb-14 leading-relaxed font-medium max-w-2xl mx-auto">
-                  Join hundreds of businesses that trust AllPay with their payment infrastructure. Build your future with the most powerful API on the market.
+                  Facilitating 1m interac payments a month with 99.3% success rate
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
                   <motion.button
