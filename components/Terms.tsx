@@ -54,7 +54,7 @@ const Terms: React.FC = () => {
 
           <section className="mb-12 border-t border-slate-100 pt-12">
             <p className="text-sm italic">
-              If you have any questions about these Terms, please contact our legal team at <a href="mailto:legal@allpay.com" className="text-brand-600 hover:underline">legal@allpay.com</a>.
+              If you have any questions about these Terms, please contact our legal team at <a href="mailto:legal@allpay.ca" className="text-brand-600 hover:underline">legal@allpay.ca</a>.
             </p>
           </section>
         </div>

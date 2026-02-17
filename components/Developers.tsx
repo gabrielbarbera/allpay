@@ -70,7 +70,7 @@ const Developers: React.FC = () => {
           </div>
           <div className="px-4 sm:px-6 lg:px-8 py-4 border-t border-slate-200 bg-slate-50/50 flex justify-center">
             <a
-              href="https://docs.allpay.com"
+              href="https://wallet.allpay.ca/api/documentation"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-sm font-bold transition-all border border-brand-700 focus:ring-4 focus:ring-brand-300 focus:outline-none"

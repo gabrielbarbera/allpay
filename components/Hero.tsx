@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              onClick={() => window.location.href = 'https://docs.allpay.com'}
+              onClick={() => window.location.href = 'https://wallet.allpay.ca/api/documentation'}
               className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center justify-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none min-h-[44px] text-left sm:text-center text-base sm:text-lg max-w-2xl"
               aria-label="Learn more about AllPay's PSP and Interac payment technology solutions"
             >

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Twitter, Github, Linkedin, Slack } from 'lucide-react';
 
 interface FooterProps {
   onTermsClick: () => void;
@@ -16,13 +15,6 @@ const Footer: React.FC<FooterProps> = ({ onTermsClick, onPrivacyClick, onSection
     { name: 'Security', id: 'security' },
   ];
 
-  const socialIcons = [
-    { Icon: Twitter, href: 'https://twitter.com/allpay', label: 'Follow AllPay on Twitter' },
-    { Icon: Github, href: 'https://github.com/allpay', label: 'View AllPay on GitHub' },
-    { Icon: Linkedin, href: 'https://linkedin.com/company/allpay', label: 'Connect with AllPay on LinkedIn' },
-    { Icon: Slack, href: 'https://join.slack.com/allpay', label: 'Join AllPay Slack community' },
-  ];
-
   return (
     <footer className="bg-white border-t border-slate-200 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -35,20 +27,6 @@ const Footer: React.FC<FooterProps> = ({ onTermsClick, onPrivacyClick, onSection
             <p className="text-slate-600 leading-relaxed font-medium text-lg max-w-md">
               The world's most advanced Interac gateway for global scale. Designed for scale, built for developers, and trusted by global enterprises.
             </p>
-            <div className="flex gap-4">
-              {socialIcons.map(({ Icon, href, label }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50 hover:border-brand-600/50 hover:shadow-[inset_0_1px_0_rgba(255,255,255,1),0_10px_20px_-5px_rgba(0,0,0,0.1)] transition-all cursor-pointer group shadow-sm active:scale-95 focus:ring-2 focus:ring-brand-500 focus:outline-none"
-                  aria-label={label}
-                >
-                  <Icon size={18} className="text-slate-400 group-hover:text-brand-600 transition-colors" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Links Grid */}
@@ -73,7 +51,6 @@ const Footer: React.FC<FooterProps> = ({ onTermsClick, onPrivacyClick, onSection
                 <ul className="space-y-4">
                 <li><button onClick={onPrivacyClick} className="text-sm text-slate-500 hover:text-brand-600 transition-colors font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1" aria-label="View Privacy Policy">Privacy Policy</button></li>
                 <li><button onClick={onTermsClick} className="text-sm text-slate-500 hover:text-brand-600 transition-colors font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1" aria-label="View Terms of Service">Terms of Service</button></li>
-                <li><button onClick={() => onSectionClick('security')} className="text-sm text-slate-500 hover:text-brand-600 transition-colors font-semibold focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1">Security Compliance</button></li>
               </ul>
             </div>
           </div>

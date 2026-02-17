@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
         <div className="flex items-center gap-6">
           <button
-            onClick={() => window.location.href = 'https://dashboard.allpay.com/login'}
+            onClick={() => window.location.href = 'https://wallet.allpay.ca/merchant'}
             className="hidden sm:block text-sm font-bold text-slate-600 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
             aria-label="Sign in to your account"
           >
@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
           <div className="mt-4 px-6 pt-4 border-t border-slate-100 flex flex-col gap-3">
             <button
               onClick={() => {
-                window.location.href = 'https://dashboard.allpay.com/login';
+                window.location.href = 'https://wallet.allpay.ca/merchant';
                 setMobileMenuOpen(false);
               }}
               className="text-base font-semibold text-slate-600 hover:text-brand-600 text-left focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
