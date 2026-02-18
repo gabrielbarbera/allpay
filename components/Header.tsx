@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 
 interface HeaderProps {
   onLogoClick: () => void;
+  onSectionClick?: (sectionId: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
+const Header: React.FC<HeaderProps> = ({ onLogoClick, onSectionClick }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,10 +18,16 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Solutions', href: '#solutions' },
-    { name: 'Features', href: '#features' },
-    { name: 'Developers', href: '#developers' },
+    { name: 'Solutions', href: '#solutions', id: 'solutions' },
+    { name: 'Features', href: '#features', id: 'features' },
+    { name: 'Developers', href: '#developers', id: 'developers' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    onSectionClick?.(id);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg px-2 py-1"
               >
                 {link.name}
@@ -84,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
               key={link.name}
               href={link.href}
               className="block py-4 px-6 text-base font-semibold text-slate-600 hover:bg-brand-50 hover:text-brand-600 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.id)}
             >
               {link.name}
             </a>

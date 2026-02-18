@@ -19,18 +19,28 @@ const App: React.FC = () => {
   const { scrollY } = useScroll();
   const translateY = useTransform(scrollY, (v) => v * 0.5);
   const containerRef = useRef<HTMLDivElement>(null);
+  const pendingSectionRef = useRef<string | null>(null);
 
   const navigateToSection = useCallback((sectionId: string) => {
     if (view !== 'landing') {
+      pendingSectionRef.current = sectionId;
       setView('landing');
-      // Wait for re-render before scrolling
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 0);
     } else {
       const element = document.getElementById(sectionId);
       element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [view]);
+
+  useEffect(() => {
+    if (view === 'landing' && pendingSectionRef.current) {
+      const id = pendingSectionRef.current;
+      pendingSectionRef.current = null;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const element = document.getElementById(id);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
     }
   }, [view]);
 
@@ -61,7 +71,7 @@ const App: React.FC = () => {
 
   return (
     <div ref={containerRef} className="min-h-screen selection:bg-brand-600 selection:text-white bg-white font-sans antialiased overflow-x-hidden text-slate-900 flex flex-col">
-      <Header onLogoClick={() => setView('landing')} />
+      <Header onLogoClick={() => setView('landing')} onSectionClick={navigateToSection} />
       
       <main className="flex-grow">
         <AnimatePresence mode="wait">

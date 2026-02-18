@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { SOLUTIONS } from '../constants';
 
 const Solutions: React.FC = () => {
@@ -27,11 +27,6 @@ const Solutions: React.FC = () => {
                     <span>{bullet}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="pt-6 border-t border-slate-200 mt-auto flex items-center justify-between text-brand-600 font-bold text-sm cursor-pointer group-hover:gap-2 transition-all">
-                <span>Learn more</span>
-                <ArrowRight size={16} />
               </div>
             </div>
           ))}

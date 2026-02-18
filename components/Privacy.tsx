@@ -57,7 +57,7 @@ const Privacy: React.FC = () => {
 
           <section className="mb-12 border-t border-slate-100 pt-12">
             <p className="text-sm italic">
-              For privacy-related inquiries or to exercise your data rights, please contact <a href="mailto:privacy@allpay.com" className="text-brand-600 hover:underline">privacy@allpay.com</a>.
+              For privacy-related inquiries or to exercise your data rights, please contact <a href="mailto:legal@allpay.ca" className="text-brand-600 hover:underline">legal@allpay.ca</a>.
             </p>
           </section>
         </div>
