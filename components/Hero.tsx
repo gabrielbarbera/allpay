@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold tracking-tight text-slate-900 flex flex-col gap-3 sm:gap-4"
           >
             <span className="block">Modern</span>
-            <span className="block text-brand-600">Interac Technology</span>
+            <span className="block text-brand-600">Payment Technology</span>
             <span className="block">for Growing Businesses</span>
           </motion.h1>
 
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed font-medium"
           >
-            Streamline inbound payments, automate reconciliation, and get paid faster with the most reliable Interac gateway for enterprise-grade payments.
+            Streamline inbound payments, automate reconciliation, and get paid faster with the most reliable payment gateway for enterprise-grade payments.
           </motion.p>
 
           <motion.div
@@ -49,9 +49,9 @@ const Hero: React.FC = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={() => window.location.href = 'https://wallet.allpay.ca/api/documentation'}
               className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold transition-all border border-brand-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_2px_rgba(0,0,0,0.05),0_20px_40px_-10px_rgba(21,112,239,0.3)] active:scale-95 flex items-center justify-center gap-2 group focus:ring-4 focus:ring-brand-300 focus:outline-none min-h-[44px] text-left sm:text-center text-base sm:text-lg max-w-2xl"
-              aria-label="Learn more about AllPay's PSP and Interac payment technology solutions"
+              aria-label="Learn more about AllPay's PSP and payment technology solutions"
             >
-              Click here to learn more about AllPay's PSP & Interac payment technology solutions.
+              Click here to learn more about AllPay's PSP & payment technology solutions.
               <ArrowRight size={20} className="flex-shrink-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
             </motion.button>
           </motion.div>
@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center space-y-1">
                 <p className="text-xl sm:text-2xl font-bold text-slate-900">$1M+</p>
-                <p className="text-[10px] text-slate-400 uppercase font-bold">Interac transferred processed monthly</p>
+                <p className="text-[10px] text-slate-400 uppercase font-bold">Transferred processed monthly</p>
               </div>
               <div className="text-center space-y-1">
                 <p className="text-xl sm:text-2xl font-bold text-slate-900">99.3%</p>

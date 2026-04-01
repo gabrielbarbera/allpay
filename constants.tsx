@@ -16,8 +16,8 @@ export const FEATURES: Feature[] = [
   },
   {
     id: 'real-time',
-    title: 'Real-Time Interac Payments',
-    description: 'Process Interac payments instantly with real-time settlement and automated notifications.',
+    title: 'Real-Time Payments',
+    description: 'Process payments instantly with real-time settlement and automated notifications.',
     bullets: [
       'TPT (Transaction Processing Time) < 150ms',
       'Dynamic routing via RTP & FedNow',
@@ -28,7 +28,7 @@ export const FEATURES: Feature[] = [
   },
   {
     id: 'security',
-    title: 'Secure Interac for Small Business',
+    title: 'Secure Payments for Small Business',
     description: 'Bank-grade encryption, real-time fraud monitoring, and 24/7 customer support. Your data and your customers\' data is always protected.',
     bullets: [
       'Level 1 PCI DSS compliant',
@@ -64,7 +64,7 @@ export const FEATURES: Feature[] = [
   },
   {
     id: 'multi-currency',
-    title: 'Interac e-Transfer & EFT',
+    title: 'e-Transfer & EFT',
     description: 'Move funds instantly across Canada\'s most trusted account-to-account networks. Go global effortlessly.',
     bullets: [
       'Mid-market FX rates',
@@ -78,7 +78,7 @@ export const FEATURES: Feature[] = [
 
 export const SOLUTIONS: Solution[] = [
   {
-    title: 'SaaS & Interac for Business',
+    title: 'SaaS & Payments for Business',
     description: 'Streamline recurring billing and reduce churn with intelligent retry logic and automated dunning.',
     bullets: ['Flexible billing cycles', 'Usage-based pricing support', 'Automated invoice generation', 'Customer payment portals'],
     type: 'saas'
@@ -91,12 +91,12 @@ export const SOLUTIONS: Solution[] = [
   },
   {
     title: 'E-Commerce',
-    description: 'Optimize checkout conversion by utilizing Interac as a payment tool for one-click transactions.',
+    description: 'Optimize checkout conversion by utilizing our payment tool for one-click transactions.',
     bullets: ['Saved payment methods', 'Guest checkout support', 'Mobile-optimized flows', 'Fraud detection tools'],
     type: 'ecommerce'
   },
   {
-    title: 'Enterprise Interac Gateway Solutions',
+    title: 'Enterprise Payment Gateway Solutions',
     description: 'Handle complex payment workflows with custom integrations and dedicated support.',
     bullets: ['Custom API integrations', 'White-label solutions', 'Dedicated account manager', 'SLA guarantees'],
     type: 'enterprise'

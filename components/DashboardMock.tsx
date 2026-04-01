@@ -17,7 +17,7 @@ const data = [
   ];
 
 const ANALYTICS = {
-  interacProcessed: 1,
+  processed: 1,
   success: 99.3,
   avgProcessing: 1.2,
   processedMonthly: 50
@@ -74,13 +74,13 @@ const DashboardMock: React.FC = () => {
 
         {/* Content Layer */}
         <div className="relative z-10 grid grid-cols-2 gap-y-12 gap-x-8">
-          {/* Interac transferred processed monthly */}
+          {/* Transferred processed monthly */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="space-y-1 text-center"
           >
-            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">${ANALYTICS.interacProcessed.toFixed(0)}M+</p>
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Interac transferred processed monthly</p>
+            <p className="text-4xl font-extrabold text-slate-900 tracking-tight">${ANALYTICS.processed.toFixed(0)}M+</p>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.25em]">Transferred processed monthly</p>
           </motion.div>
 
           {/* Success Rate */}
